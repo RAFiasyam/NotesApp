@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="args"
+            type="com.idn.notesapp.fragment.update.UpdateFragmentArgs" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_16dp"
+        tools:context=".fragment.update.UpdateFragment">
+
+        <EditText
+            android:id="@+id/et_uptitle"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_60dp"
+            android:background="@drawable/costum_input"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/txt_title"
+            android:text="@{args.currentItem.title}"
+            android:paddingStart="@dimen/_24dp"
+            android:paddingEnd="@dimen/_24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/sp_update"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_60dp"
+            android:layout_marginTop="@dimen/_8dp"
+            android:entries="@array/priorities"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingStart="@dimen/_20dp"
+            android:paddingEnd="@dimen/_20dp"
+            android:parsePriorityToInt="@{args.currentItem.priority}"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_uptitle" />
+
+        <EditText
+            android:id="@+id/et_desc_update"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_8dp"
+            android:background="@drawable/costum_input"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            android:hint="@string/txt_dsc"
+            android:text="@{args.currentItem.description}"
+            android:paddingStart="@dimen/_24dp"
+            android:paddingEnd="@dimen/_24dp"
+            android:paddingTop="@dimen/_16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sp_update" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
